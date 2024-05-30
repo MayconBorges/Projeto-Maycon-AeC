@@ -59,16 +59,15 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 app.post('/clientes', (req, res) => {
-  const { nome, funcao, salario, cep, logradouro, cidade, estado } = req.body;
-  const query = 'INSERT INTO clientes (nome, funcao, salario, cep, logradouro, cidade, estado) VALUES (?, ?, ?, ?, ?, ?, ?)';
-  db.query(query, [nome, funcao, salario, cep, logradouro, cidade, estado], (err, result) => {
-    if (err) {
-      console.error('Erro ao inserir cliente:', err);
-      res.status(500).send('Erro ao inserir cliente');
-      return;
-    }
-    console.log('Cliente inserido com sucesso:', result);
-    res.status(201).send('Cliente inserido com sucesso');
-  });
-});
-  
+    const { nome, funcao, salario, cep, logradouro, cidade, estado } = req.body;
+    const query = 'INSERT INTO clientes (nome, funcao, salario, cep, logradouro, cidade, estado) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    db.query(query, [nome, funcao, salario, cep, logradouro, cidade, estado], (err, result) => {
+      if (err) {
+        console.error('Erro ao inserir cliente:', err);
+        res.status(500).send('Erro ao inserir cliente');
+        return;
+      }
+      console.log('Cliente inserido com sucesso:', result);
+      res.status(201).send('Cliente inserido com sucesso');
+    });
+  });  
