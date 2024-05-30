@@ -8,7 +8,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '1234',
-  database: 'CRUD_Maycon_Clientes'
+  database: 'Crud_Maycon_AEC'
 });
 
 db.connect(err => {
