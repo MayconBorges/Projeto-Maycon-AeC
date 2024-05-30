@@ -13,6 +13,20 @@
             "database": "mysql",
             "username": "root",
             "askForPassword": true
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "Banco de Dados Clientes",
+            "database": "Crud_Maycon_AEC",
+            "username": "root",
+            "askForPassword": true
         }
     ]
 }
