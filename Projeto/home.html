@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD dos clientes</title>
+  <link rel="stylesheet" href="style2.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <button id="back" onclick="window.location.href = 'index.html';">Voltar</button>
+      <span>Cadastro de Clientes</span>
+      <button onclick="openModal()" id="new">Incluir</button>
+    </div>     
+
+
+    
+
+    <div class="divTable">
+      <table>
+        <thead>
+          <tr>
+            <th>ID Usúario</th>
+            <th>Função</th>
+            <th>Salário</th>      
+            <th>CEP</th>
+            <th>Logradouro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <button onclick="exportToCSV()" id="export" class="export-bottom-right">Exportar para CSV</button>
+
+    <div class="modal-container">
+      <div class="modal">
+        <form>
+          <label for="m-nome">Nome</label>
+          <input id="m-nome" type="text" required />
+  
+          <label for="m-funcao">Função</label>
+          <input id="m-funcao" type="text" required />
+  
+          <label for="m-salario">Salário</label>
+          <input id="m-salario" type="number" required/>
+
+          <label for="m-cep">CEP</label>
+          <input id="m-cep" required />
+                              
+          <label for="m-logradouro">Logradouro</label>
+          <input id="m-logradouro" required />
+
+          <label for="m-cidade">Cidade</label>
+          <input id="m-cidade" required />
+
+          <label for="m-estado">Estado</label>
+          <input id="m-estado" required />
+
+          <button id="btnSalvar">Salvar</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html> 

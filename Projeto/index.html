@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Login </title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="wrapper">
+    <form action="">
+      <h1>Login</h1>
+      
+      <div class="input-box">
+        <input type="text" placeholder="Usuário" id="login" required>
+        <i class='bx bxs-user'></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password" placeholder="Senha" id="password" required>
+        <i class='bx bxs-lock-alt' ></i>
+      </div>
+
+      <div class="remember-forgot">
+        <label><input type="checkbox">Lembrar minhas credenciais</label>
+        <p><a href="#">Esqueceu a senha?</a></p>
+      </div>
+      <button type="submit" onclick="logar(); return false" class="btn">Login</button>
+
+      <script>
+        function logar(){
+          var login = document.getElementById('login').value;
+          var password = document.getElementById('password').value;
+      
+          if(login == "admin1" && password == "admin"){
+            alert('Sucesso');
+            location.href = "home.html";
+            return false; // Evita a submissão do formulário
+          } else {
+            alert('Usuário ou senha incorretos');
+          }
+        }
+      </script>
+  
+      <div class="register-link">
+        <p>Não possui cadastro? <a href="register.html">Registrar</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

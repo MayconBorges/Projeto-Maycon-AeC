@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Cadastro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <style>
+    .input-box {
+      position: relative;
+      width: 100%;
+      margin-bottom: 20px; /* Adiciona espaço abaixo do campo */
+    }
+    
+    .input-box input {
+      width: calc(100% - 45px); /* Ajusta o tamanho do input para a largura menos o tamanho do ícone */
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      border: 2px solid rgba(255, 255, 255, .2);
+      border-radius: 40px;
+      font-size: 16px;
+      color: #fff;
+      padding: 20px 45px 20px 20px;
+    }
+    
+    .input-box i {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, .2);
+    }
+    
+    .input-box.invalid input {
+      border-color: red; /* Altera a cor da borda para vermelho quando inválido */
+    }
+  </style>
+  
+  <div class="wrapper">
+    <form id="formulario">
+      <h1>Cadastro</h1>
+      <div class="input-box">
+        <input type="text" placeholder="Usuário" id="login" required>
+        <i class='bx bxs-user'></i>
+      </div>
+
+      <div class="input-box">
+        <input type="email" placeholder="E-mail" id="email" required>
+        <i class='bx bxs-envelope'></i>
+      </div>    
+      
+      <script>
+        var emailInput = document.getElementById('email');
+      
+        emailInput.addEventListener('blur', function() {
+          if (!emailInput.validity.valid) {
+            emailInput.parentElement.classList.add('invalid');
+            alert('Por favor, insira um e-mail válido.');
+          } else {
+            emailInput.parentElement.classList.remove('invalid');
+          }
+        });
+      </script>
+
+      
+       <div class="input-box">
+        <input type="password" placeholder="Senha" id="password" required>
+        <span class="password-toggle" onclick="togglePasswordVisibility('password')">
+          <i class='bx bxs-lock-alt'></i>
+        </span>
+      </div>
+      <div class="input-box">
+        <input type="password" placeholder="Confirmação de Senha" id="confirmPassword" required>
+        <span class="password-toggle" onclick="togglePasswordVisibility('confirmPassword')">
+          <i class='bx bxs-lock-alt'></i>
+        </span>
+      </div>
+
+
+      
+      <div class="remember-forgot">
+        <label><input type="checkbox" required>Eu concordo com os termos de uso e condições</label>
+      </div>
+      <button type="submit" class="btn">Registrar</button>
+      <div class="register-link">
+        <p>Já possui conta? <a href="index.html">Login</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function togglePasswordVisibility(inputId) {
+      var passwordInput = document.getElementById(inputId);
+      var passwordIcon = passwordInput.nextElementSibling.querySelector("i");
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        passwordIcon.classList.remove("bxs-lock-alt");
+        passwordIcon.classList.add("bxs-lock-open-alt");
+      } else {
+        passwordInput.type = "password";
+        passwordIcon.classList.remove("bxs-lock-open-alt");
+        passwordIcon.classList.add("bxs-lock-alt");
+      }
+    }
+
+    document.getElementById('formulario').addEventListener('submit', function(event) {
+      // Obtém os valores dos campos de senha e confirmação de senha
+      var senha = document.getElementById("password").value;
+      var confirmacaoSenha = document.getElementById("confirmPassword").value;
+
+      // Verifica se os valores dos campos são iguais
+      if (senha !== confirmacaoSenha) {
+        // Se os valores forem diferentes, exibe uma mensagem de erro
+        alert("As senhas não coincidem. Por favor, verifique e tente novamente.");
+        // Impede o envio do formulário
+        event.preventDefault();
+      }
+    });
+  </script>
+
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', function(event) {
+      // Obtém os valores dos campos de senha e confirmação de senha
+      var senha = document.getElementById("password").value;
+      var confirmacaoSenha = document.getElementById("confirmPassword").value;
+
+      // Verifica se os valores dos campos são iguais
+      if (senha !== confirmacaoSenha) {
+        // Se os valores forem diferentes, exibe uma mensagem de erro
+        alert("As senhas não coincidem. Por favor, verifique e tente novamente.");
+        // Impede o envio do formulário
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
