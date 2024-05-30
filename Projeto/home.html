@@ -42,6 +42,49 @@
       </table>
     </div>
 
+
+    <script>
+        document.getElementById('btnSalvar').addEventListener('click', async () => {
+          const nome = document.getElementById('m-nome').value;
+          const funcao = document.getElementById('m-funcao').value;
+          const salario = document.getElementById('m-salario').value;
+          const cep = document.getElementById('m-cep').value;
+          const logradouro = document.getElementById('m-logradouro').value;
+          const cidade = document.getElementById('m-cidade').value;
+          const estado = document.getElementById('m-estado').value;
+      
+          const dados = {
+            nome,
+            funcao,
+            salario,
+            cep,
+            logradouro,
+            cidade,
+            estado
+          };
+      
+          try {
+            const response = await fetch('/clientes', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(dados)
+            });
+      
+            if (response.ok) {
+              alert('Cliente inserido com sucesso');
+              // Limpar os campos do formulário ou recarregar a página
+            } else {
+              throw new Error('Erro ao inserir cliente');
+            }
+          } catch (error) {
+            console.error('Erro ao enviar dados do cliente:', error);
+            alert('Erro ao enviar dados do cliente. Por favor, tente novamente.');
+          }
+        });
+      </script>
+
     <button onclick="exportToCSV()" id="export" class="export-bottom-right">Exportar para CSV</button>
 
     <div class="modal-container">
