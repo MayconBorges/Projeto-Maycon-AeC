@@ -58,6 +58,8 @@ app.post('/clientes', (req, res) => {
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
+// No arquivo server.js (ou onde você configurou seu servidor Node.js)
+
 app.post('/clientes', (req, res) => {
     const { nome, funcao, salario, cep, logradouro, cidade, estado } = req.body;
     const query = 'INSERT INTO clientes (nome, funcao, salario, cep, logradouro, cidade, estado) VALUES (?, ?, ?, ?, ?, ?, ?)';
@@ -70,4 +72,5 @@ app.post('/clientes', (req, res) => {
       console.log('Cliente inserido com sucesso:', result);
       res.status(201).send('Cliente inserido com sucesso');
     });
-  });  
+  });
+  
